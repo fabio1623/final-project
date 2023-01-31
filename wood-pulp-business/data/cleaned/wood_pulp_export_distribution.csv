@@ -1,12 +1,12 @@
-country,market_share
-Brazil,23.9
-Canada,12.2
-United States,11.1
-Indonesia,9.1
-Finland,6.5
-Sweden,6.1
-Chile,5.8
-Uruguay,3.7
-Russia,3.6
-Portugal,1.9
-Others,16.0
+country,market_share,country_code
+Brazil,23.9,BRA
+Canada,12.2,CAN
+United States,11.1,USA
+Indonesia,9.1,IDN
+Finland,6.5,FIN
+Sweden,6.1,SWE
+Chile,5.8,CHL
+Uruguay,3.7,URY
+Russia,3.6,RUS
+Portugal,1.9,PRT
+Others,16.0,
