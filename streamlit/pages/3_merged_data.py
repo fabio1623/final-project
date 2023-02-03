@@ -4,9 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.sidebar.markdown("# Merge Data")
+st.sidebar.markdown("# Merge Data :hammer_and_wrench:")
 
-st.markdown("# Merged Data")
+st.markdown("# Merged Data :hammer_and_wrench:")
 
 data = pd.read_csv('../data/data.csv')
 data_cleaned = pd.read_csv('../data/data_cleaned.csv')

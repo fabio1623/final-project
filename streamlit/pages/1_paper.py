@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-st.markdown("# Paper Data")
-st.sidebar.markdown("# Paper")
+st.markdown("# Paper Data :roll_of_paper:")
+st.sidebar.markdown("# Paper :roll_of_paper:")
 
 export_data = pd.read_csv('../data/paper_pulp_export_data.csv')
 import_data = pd.read_csv('../data/paper_pulp_import_data.csv')

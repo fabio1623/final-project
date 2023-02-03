@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-st.markdown("# Wood Pulp Data")
-st.sidebar.markdown("# Wood Pulp")
+st.markdown("# Wood Pulp Data :wood:")
+st.sidebar.markdown("# Wood Pulp :wood:")
 
 export_data = pd.read_csv('../data/wood_pulp_export_data.csv')
 import_data = pd.read_csv('../data/wood_pulp_import_data.csv')

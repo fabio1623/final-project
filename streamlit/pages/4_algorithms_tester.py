@@ -11,6 +11,7 @@ from xgboost import XGBRegressor
 from lightgbm import LGBMRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
+import pickle
 
 
 algorithms = [
@@ -100,10 +101,17 @@ def compare_models(models, dataframe, label):
 def display_ordered_rmse(dataframe_summary):
     st.write(dataframe_summary.sort_values(by='RMSE'))
 
+def save_model(model_with_scaler, label):
+    try:
+        with open(f"../data/models/{label}_{model_with_scaler['model'][:3]}_with_scaler.pkl", 'wb') as file:
+            pickle.dump(model_with_scaler, file)
+    except:
+        pass
 
-st.sidebar.markdown("# Test Algorithms")
 
-st.markdown("# Algorithms Testing")
+st.sidebar.markdown("# Test Algorithms :brain:")
+
+st.markdown("# Algorithms Testing :brain:")
 
 data_cleaned = pd.read_csv('../data/data_cleaned.csv')
 
@@ -124,7 +132,11 @@ if len(selected_algorithms) > 0:
             with st.spinner('Wait for it...'):
                 if selected_label == 'paper_price':
                     result = compare_models(selected_algorithms, data_cleaned.drop('wood_pulp_price', axis=1), selected_label)
+                    for model_with_scaler in result['models']:
+                        save_model(model_with_scaler, selected_label)
                 else:
                     result = compare_models(selected_algorithms, data_cleaned.drop('paper_price', axis=1), selected_label)
+                    for model_with_scaler in result['models']:
+                        save_model(model_with_scaler, selected_label)
 
                 display_ordered_rmse(result['summary'])
