@@ -18,7 +18,7 @@ st.set_page_config(
 
 st.write("# 🔮 Predictions Tester")
 
-data = st.cache(pd.read_csv)("../data/data_cleaned.csv")
+data = st.cache_data(pd.read_csv)("../data/data_cleaned.csv")
 
 label = st.selectbox("Select Label Column", ["paper_price", "wood_pulp_price"])
 if label == "paper_price":

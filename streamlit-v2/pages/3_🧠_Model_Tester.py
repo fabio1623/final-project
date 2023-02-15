@@ -18,7 +18,7 @@ st.set_page_config(
 
 st.write("# 🧠 Model Tester")
 
-data = st.cache(pd.read_csv)("../data/data_cleaned.csv")
+data = st.cache_data(pd.read_csv)("../data/data_cleaned.csv")
 
 label = st.selectbox("Select Label Column", ["paper_price", "wood_pulp_price"])
 X = data.drop([label], axis=1)
