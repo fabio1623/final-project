@@ -79,7 +79,7 @@ model = [obj['model'] for obj in algorithms if obj['name'] == selected_algorithm
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 model.fit(X_train, y_train)
 
-year = st.slider("Year", min_value=data["year"].max()+1, max_value=2050, value=dt.datetime.now().year+1, step=1)
+year = st.slider("Year", min_value=int(data["year"].max()+1), max_value=2050, value=dt.datetime.now().year+1, step=1)
 
 if st.button("Set random values for prediction inputs"):
     paper_pulp_prod_tonnes_value = np.random.randint(100000000)
