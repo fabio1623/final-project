@@ -11,24 +11,24 @@ def fill_na_with_mean(dataframe, column_name):
 
     return dataframe
 
+@st.cache_data
 def display_heatmap(dataframe):
-    with st.spinner('Loading...'):
-            corr=dataframe.corr()
+    corr=dataframe.corr()
 
-            mask=np.triu(np.ones_like(corr, dtype=bool))     # generate a mask for the upper triangle
+    mask=np.triu(np.ones_like(corr, dtype=bool))     # generate a mask for the upper triangle
 
-            f, ax=plt.subplots(figsize=(11, 9))                 # set up the matplotlib figure
+    f, ax=plt.subplots(figsize=(11, 9))                 # set up the matplotlib figure
 
-            cmap=sns.diverging_palette(220, 10, as_cmap=True)   # generate a custom diverging colormap
+    cmap=sns.diverging_palette(220, 10, as_cmap=True)   # generate a custom diverging colormap
 
-            sns.heatmap(corr, mask=mask, cmap=cmap,             # draw the heatmap with the mask and correct aspect ratio
-                        vmax=.3, center=0, square=True,
-                        linewidths=.5, cbar_kws={"shrink": .5})
-            st.write(f)
+    sns.heatmap(corr, mask=mask, cmap=cmap,             # draw the heatmap with the mask and correct aspect ratio
+                vmax=.3, center=0, square=True,
+                linewidths=.5, cbar_kws={"shrink": .5})
+    st.write(f)
 
 @st.cache_data
 def get_UN_data():
-    data = pd.read_csv("../data/data.csv")
+    data = pd.read_csv("data/data.csv")
     cols = ['paper_pulp_prod_tonnes', 'paper_pulp_export_tonnes', 'paper_pulp_import_tonnes', 'wood_pulp_production_tonnes', 'wood_pulp_export_tonnes', 'wood_pulp_import_tonnes', 'paper_price']
 
     for col in cols:
@@ -36,6 +36,7 @@ def get_UN_data():
 
     return data
 
+@st.cache_data
 def display_chart(dataframe, selected_feature, selected_countries):
     dataframe = dataframe[dataframe['country_code'].isin(selected_countries)]
     st.write(f"### {selected_feature}", dataframe.sort_values(by='year', ascending=False))

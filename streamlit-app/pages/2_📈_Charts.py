@@ -8,7 +8,7 @@ st.set_page_config(
 
 st.write("# 📈 Charts")
 
-data = pd.read_csv("../data/data_cleaned.csv")
+data = pd.read_csv("data/data_cleaned.csv")
 
 column1 = st.selectbox("Select a column to plot (x-axis)", data.columns)
 
